@@ -82,8 +82,10 @@ int main(int argc, char** argv)
 		icbs.max_num_of_mdds = vm["MaxMDDs"].as<int>();
 	bool res;
 	res = icbs.runICBSSearch();
-	if (vm.count("output"))
+	if (vm.count("output")){
+		icbs.savePaths(vm["output"].as<std::string>(), vm["agents"].as<string>());
 		icbs.saveResults(vm["output"].as<std::string>(), vm["agents"].as<string>());
+	}
 	icbs.clearSearchEngines();
 	return 0;
 
