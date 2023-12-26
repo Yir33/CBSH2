@@ -61,7 +61,7 @@ public:
 	// Save results
 	void saveResults(const std::string &fileName, const std::string &instanceName) const;
 	void saveLogs(const std::string &fileName) const;
-
+	void savePaths(const std::string &fileName, const std::string &instanceName) const;
 private:
 
 	typedef boost::heap::fibonacci_heap< ICBSNode*, boost::heap::compare<ICBSNode::compare_node> > heap_open_t;
