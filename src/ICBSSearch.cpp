@@ -1557,3 +1557,19 @@ bool ICBSSearch::validateSolution() const
 	}
 	return true;
 }
+			
+void ICBSSearch::savePaths(const std::string &fileName, const std::string &instanceName)const
+{
+    ofstream stats;
+    stats.open(fileName, ios::app);
+    for (int i = 0; i < num_of_agents; i++)
+    {
+        stats << "Agent " << i << "," ;
+        for (size_t t = 0; t < paths[i]->size(); t++)
+            stats << "(" << paths[i]->at(t).location / search_engines[0]->num_col << "-" <<
+                paths[i]->at(t).location % search_engines[0]->num_col << "),";
+        stats << endl;
+    }
+    
+    stats.close();
+}
